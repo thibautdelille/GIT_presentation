@@ -24,7 +24,9 @@
 }
 
 ul.commit-object{
-	border:1px solid #555555 !important;
+	border-top:1px solid #555555 !important;
+	border-left:1px solid #555555 !important;
+	border-right:1px solid #555555 !important;
 	background:#FFFFFF;
 	margin:0;
 	padding:0;
@@ -34,9 +36,9 @@ ul.commit-object li{
 	list-style-type: none;
 	font-size:.5em;
 	padding:0 .5em;
+	border-bottom:1px solid #555555 !important;
 }
 ul.commit-object li.first{
-	border-bottom:1px solid #555555 !important;
 	background-color:#9595f6;
 	color:#fff;
 }
@@ -51,4 +53,7 @@ ul.commit-object li.first{
 
 .columns, .column {
 	position:relative !important;
+}
+.repo_title {
+	margin-top:.5em !important;
 }

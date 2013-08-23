@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
 
 		<!-- For syntax highlighting -->
@@ -43,7 +43,7 @@
 					<h1>GIT</h1>
 					<h3>I can't work without it</h3>
 					<p>
-						<small>A Presentation by <a href="http://thibautdelille.com">Thibaust Delille</a> / <a href="http://twitter.com/thibautdelille">@thibautdelille</a></small>
+						<small>A Presentation by <a target="_blank" href="http://thibautdelille.com">Thibaut Delille</a> / <a target="_blank" href="http://twitter.com/thibautdelille">@thibautdelille</a></small>
 					</p>
 				</section>
 
@@ -65,7 +65,7 @@
 					<br/>
 					<h5>Mac installer</h5>
 					<p>
-						https://code.google.com/p/git-osx-installer/
+						<a target="_blank" href="https://code.google.com/p/git-osx-installer/">https://code.google.com/p/git-osx-installer/</a>
 					</p>
 					<br/>
 					<h5>Using Brew</h5>
@@ -114,6 +114,8 @@ user.email=thibaut@jvst.us
 
 				<section>
 					<h2>Initialize Git</h2>
+					<br/>
+					<h4>Create your first local repository</h4>
 					<pre><code data-trim contenteditable>
 $ cd Projects/git_example/
 $git_example git init
@@ -270,6 +272,54 @@ $ git commit -m "Inital Commit"
 							<div class="head-object">HEAD</div>
 						</div>
 					</div>
+				</section>
+
+				<section>
+					<h2>Log</h2>
+					<br/>
+					<pre><code data-trim contenteditable>
+# openning the log
+$ git log
+					</code></pre>
+					<pre class="fragment"><code data-trim contenteditable>
+
+commit 176e1fc9047d069b6b0f5a086f98fabd75ab0729
+Author: Thibaut Delille
+Date:   Thu Aug 22 15:47:26 2013 -0700
+
+    update md
+
+commit 55d3aea268bae46a51d039ef784fbc786d23ed2a
+Author: Thibaut Delille
+Date:   Thu Aug 22 11:23:22 2013 -0400
+
+    remove log
+
+commit 90a8ca416836487c7d4828a07bcabfc15aa9cab9
+Author: Thibaut Delille
+Date:   Tue Aug 20 23:30:11 2013 -0400
+
+    add .open
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Pretty Log</h2>
+					<br/>
+					<pre><code data-trim contenteditable>
+# openning the log
+$ git log --graph --decorate --oneline --abbrev-commit --all
+					</code></pre>
+					<pre class="fragment"><code data-trim contenteditable>
+* 176e1fc (HEAD, master) update md
+* 55d3aea remove log
+* 90a8ca4 add .open
+					</code></pre>
+					<br/>
+					<h4 class="fragment">Add an alias</h4>
+					<pre class="fragment"><code data-trim contenteditable>
+$ git config --global alias.logg log --graph --decorate --oneline --abbrev-commit --all
+					</code></pre>
 				</section>
 
 				<section>
@@ -475,7 +525,7 @@ $ git merge develop
 						</div>
 						<div class="column small-2">
 							<ul class="commit-object fragment" data-fragment-index="7">
-								<li class="first">631a237</li>
+								<li class="first">sd3763a</li>
 								<li>"Edit title"</li>
 							</ul>
 						</div>
@@ -619,15 +669,230 @@ $ git commit -m "Mrg Conflict"
 				</section>
 
 				<section>
-					<h2>Be Social</h2>
-					<p>The best aspect of Git is that it make working togther fun and easy</p>
+					<h2>Remote Repository</h2>
+					<br/>
+					<p>Remote repository are hosted on git server online:</p>
+					<br/>
 					<ul>
-						<li>Github <a href="https://github.com/">https://github.com/</a></li>
-						<li>Bitbucket <a href="https://bitbucket.org/">https://bitbucket.org/</a></li>
-						<li>JVST Gitlab <a href="https://gitlab.jvst.com/">https://gitlab.jvst.com/</a></li>
+						<li>Github <a target="_blank" href="https://github.com/">https://github.com/</a></li>
+						<li>Bitbucket <a target="_blank" href="https://bitbucket.org/">https://bitbucket.org/</a></li>
+						<li>JVST Gitlab <a target="_blank" href="https://gitlab.jvst.com/">https://gitlab.jvst.com/</a></li>
 					</ul>
 				</section>
 
+				<section>
+					<h2>Cloning</h2>
+					<br/>
+					<pre><code data-trim contenteditable>
+# this will create a new folder name Effeckt.css
+$ git clone https://github.com/h5bp/Effeckt.css.git
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Create a Remote</h2>
+					<br/>
+					<ol>
+						<li>Create the repository on Github</li>
+						<li>Then add the remote to your project and push it</li>
+					</ol>
+					<pre><code data-trim contenteditable>
+# add the remote origin
+git remote add origin https://github.com/thibautdelille/repo_test.git
+
+# push the branch master in origin
+git push -u origin master
+
+# list the remote on this repo
+git remote
+# display: origin
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>How does it work?</h2>
+					<br/>
+					<div class="clearfix">
+						<div class="column small-2">
+							<h4 class="repo_title fragment" data-fragment-index="1">Online</h4>
+						</div>
+					</div>
+					<div class="clearfix">
+						<div class="column small-2">
+							<small class="repo_title fragment" data-fragment-index="1">Github</small>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="3">
+								<li class="first">5cd088c</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="6">
+								<li class="first">631a237</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="6">
+								<li class="first">90a8ca4</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="7">
+								<li class="first">d3ac8e2</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="8">
+								<li class="first">93c16b8</li>
+							</ul>
+						</div>
+					</div>
+					<div class="content"></div>
+					<div class="clearfix">
+						<div class="clearfix">
+							<div class="column small-2">
+								<h4 class="repo_title">LOCAL</h4>
+							</div>
+						</div>
+						<div class="column small-2">
+							<small class="repo_title fragment" data-fragment-index="2">origin/master</small>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="3">
+								<li class="first">5cd088c</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="6">
+								<li class="first">631a237</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="6">
+								<li class="first">90a8ca4</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="9">
+								<li class="first">d3ac8e2</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="9">
+								<li class="first">93c16b8</li>
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix">
+						<div class="column small-2">
+							<small class="repo_title">master</small>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object">
+								<li class="first">5cd088c</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="4">
+								<li class="first">631a237</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="5">
+								<li class="first">90a8ca4</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="10">
+								<li class="first">d3ac8e2</li>
+							</ul>
+						</div>
+						<div class="column small-2">
+							<ul class="commit-object fragment" data-fragment-index="10">
+								<li class="first">93c16b8</li>
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix">
+						<div class="column small-2">
+							<div class="content"></div>
+						</div>
+						<div class="column small-2">
+							<div class="head-object fragment fade-out" data-fragment-index="4">HEAD</div>
+						</div>
+						<div class="column small-2 fragment fade-in" data-fragment-index="4">
+							<div class="head-object fragment fade-out" data-fragment-index="5">HEAD</div>
+						</div>
+						<div class="column small-2 fragment fade-in" data-fragment-index="5">
+							<div class="head-object fragment fade-out" data-fragment-index="10">HEAD</div>
+						</div>
+						<div class="column small-2">
+							<div class="content"></div>
+						</div>
+						<div class="column small-2 fragment fade-in" data-fragment-index="10">
+							<div class="head-object">HEAD</div>
+						</div>
+					</div>
+					<div class="fragment absolute" data-fragment-index="1">
+					<pre class="fragment fade-out" data-fragment-index="2"><code data-trim contenteditable>
+# create your repository on Github
+					</code></pre>
+					</div>
+					<div class="fragment absolute" data-fragment-index="2">
+					<pre class="fragment fade-out" data-fragment-index="3"><code data-trim contenteditable>
+# create the remote origin
+$ git remote add origin https://github.com/thibautdelille/git_example.git
+					</code></pre>
+					</div>
+					<div class="fragment absolute" data-fragment-index="3">
+					<pre class="fragment fade-out" data-fragment-index="4"><code data-trim contenteditable>
+# push the branch master in origin
+$ git push -u origin master
+					</code></pre>
+					</div>
+					<div class="fragment absolute" data-fragment-index="4">
+					<pre class="fragment fade-out" data-fragment-index="6"><code data-trim contenteditable>
+# switch to branch develop
+$ git add .
+$ git commit -m "[message]"
+					</code></pre>
+					</div>
+					<div class="fragment absolute" data-fragment-index="6">
+					<pre class="fragment fade-out" data-fragment-index="7"><code data-trim contenteditable>
+# push the branch master in origin
+$ git push -u origin master
+					</code></pre>
+					</div>
+					<div class="fragment absolute" data-fragment-index="7">
+					<pre class="fragment fade-out" data-fragment-index="9"><code data-trim contenteditable>
+# another person is pushing on the github repo
+					</code></pre>
+					</div>
+					<div class="fragment absolute" data-fragment-index="9">
+					<pre class="fragment fade-out" data-fragment-index="10"><code data-trim contenteditable>
+# fetching the data from the server
+$ git fetch origin
+					</code></pre>
+					</div>
+					<div class="fragment absolute" data-fragment-index="10">
+					<pre class="fragment fade-out" data-fragment-index="11"><code data-trim contenteditable>
+# mergin the origin on the local repo
+$ git merge origin/master
+					</code></pre>
+					</div>
+				</section>
+				<section>
+					<h2>Where to go from here</h2>
+					<ul>
+						<li>Try Git with github: <a target="_blank" href="http://try.github.io/">http://try.github.io/</a></li>
+						<li>Create an Account on GitHub <a target="_blank" href="https://github.com/">https://github.com/</a></li>
+						<li>Install Git: <a target="_blank" href="https://code.google.com/p/git-osx-installer/">https://code.google.com/p/git-osx-installer/</a></li>
+						<li>Explore Github: <a target="_blank" href="https://github.com/explore/">https://github.com/explore/</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Merci :)</h2>
+				</section>
 			</div>
 
 		</div>
