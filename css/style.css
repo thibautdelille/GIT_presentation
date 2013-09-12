@@ -1,0 +1,59 @@
+.bordered{
+	border:1px solid #555555 !important;
+}
+.border-bottom{
+	border-bottom:1px solid #555555 !important;
+	margin-bottom:.5em !important;
+}
+.content{
+	margin:.5em !important;
+	padding:.5em !important;
+}
+.head-object{
+	border:1px solid #555555 !important;
+	background:#f69595;
+	color:#fff;
+	margin:.5em !important;
+}
+.merge-object{
+	border:1px solid #555555 !important;
+	background:#f6f695;
+	color:#000;
+	margin:.5em !important;
+	font-size:.5em !important;
+}
+
+ul.commit-object{
+	border-top:1px solid #555555 !important;
+	border-left:1px solid #555555 !important;
+	border-right:1px solid #555555 !important;
+	background:#FFFFFF;
+	margin:0;
+	padding:0;
+}
+
+ul.commit-object li{
+	list-style-type: none;
+	font-size:.5em;
+	padding:0 .5em;
+	border-bottom:1px solid #555555 !important;
+}
+ul.commit-object li.first{
+	background-color:#9595f6;
+	color:#fff;
+}
+
+.absolute{
+	position:absolute;
+	width:100%;
+}
+.absolute.top{
+	top:0;
+}
+
+.columns, .column {
+	position:relative !important;
+}
+.repo_title {
+	margin-top:.5em !important;
+}
